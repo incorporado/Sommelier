@@ -18,7 +18,7 @@
 <script src="JS/Bootstrap.js"></script>
 
 </head>
-
+    
 <body id="Body" itemscope="" itemtype="http://schema.org/WebPage" class="culture_es_ES country_ES lang_es">
 	<form method="post" action="/trip-finder/" id="Form">        
 

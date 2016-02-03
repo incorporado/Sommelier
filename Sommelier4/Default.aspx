@@ -340,14 +340,7 @@
                     <h2>
                         <span id="Content_tripFinder_SeoLinkSection_uiPopularTitle">Destinos populares</span>
                     </h2>
-                    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False">
-                        <Columns>
-                            <asp:BoundField DataField="Origen" HeaderText="Origen" SortExpression="Origen" />
-                            <asp:BoundField DataField="Destino" HeaderText="Destino" SortExpression="Destino" />
-                            <asp:BoundField DataField="Precio_Alta" HeaderText="Precio_Alta" SortExpression="Precio_Alta" />
-                            <asp:BoundField DataField="Precio_Baja" HeaderText="Precio_Baja" SortExpression="Precio_Baja" />
-                        </Columns>
-                    </asp:GridView>                 
+                    <asp:GridView ID="GridView1" runat="server"></asp:GridView>                 
                 </div>
 
                 &nbsp;<div class="container">

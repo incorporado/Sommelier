@@ -14,28 +14,18 @@ namespace Sommelier4
 {
     public partial class Default : Page
     {
-
-        string datosConexion = "Data Source=localhost;Initial Catalog=Odestino;Integrated Security=True";
-        DataTable datos = new DataTable();
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(datosConexion);
-            SqlCommand cmd = new SqlCommand("SELECT * from [Precios]", conn);
-            SqlDataReader dr;
-
-            conn.Open();
-            dr = cmd.ExecuteReader();
-            
-            DataTable MyDataTable = new DataTable();
-            MyDataTable.Load(dr);
-
-            GridView1.DataSource = MyDataTable;
-            GridView1.DataBind();
-
-            MyDataTable.Dispose();
-            cmd.Dispose();
-            conn.Dispose();
+            using (SqlConnection con = new SqlConnection("Data Source=localhost;Integrated Security=true;Initial Catalog=Odestino"))
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("SELECT TOP 1000 [Origen],[Destino],[Precio_Alta],[Precio_Baja] from [Precios]", con);
+                SqlDataReader dr = cmd.ExecuteReader();
+                GridView1.AutoGenerateColumns = true;
+                GridView1.DataSource = dr;
+                GridView1.DataBind();
+                con.Close();
+            }
         }
     }
 }
